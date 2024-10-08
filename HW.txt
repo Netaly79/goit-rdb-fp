@@ -51,11 +51,74 @@ CREATE TABLE cases (
 INSERT INTO cases (CountryID, Year, DiseaseID, Number)
 SELECT c.country_id AS country_id, 
        ic.Year, 
-       8 AS DiseaseID, 
-       COALESCE(NULLIF(ic.number_cholera_cases, ''), 0) AS Number
+       1 AS DiseaseID, 
+       COALESCE(NULLIF(ic.Number_yaws, ''), null)
 FROM infectious_cases ic
-INNER JOIN countries c ON ic.Entity = c.Entity;
+INNER JOIN countries c ON ic.Entity = c.Entity
 
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       2 AS DiseaseID, 
+       COALESCE(NULLIF(ic.polio_cases, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       3 AS DiseaseID, 
+       COALESCE(NULLIF(ic.cases_guinea_worm, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       4 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_rabies, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       5 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_malaria, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       6 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_hiv, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       7 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_tuberculosis, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       8 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_smallpox, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
+
+INSERT INTO cases (CountryID, Year, DiseaseID, Number)
+SELECT c.country_id AS country_id, 
+       ic.Year, 
+       9 AS DiseaseID, 
+       COALESCE(NULLIF(ic.number_cholera_cases, ''), null)
+FROM infectious_cases ic
+INNER JOIN countries c ON ic.Entity = c.Entity
 
 TASK 3:
 
