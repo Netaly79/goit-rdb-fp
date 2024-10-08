@@ -135,12 +135,14 @@ FROM
     infectious_cases ic
 INNER JOIN 
     countries c ON ic.Entity = c.Entity
-GROUP BY 
-    c.country_id, c.Entity, c.Code;
+where ic.Number_rabies > 0
+GROUP BY c.country_id, c.Entity, c.Code
+ORDER BY avg_rabies DESC
+LIMIT 10;
 
 
 Normalised table:
-SELECT 
+SELECT distinct
     cs.countryId,
     c.entity,
     c.code,
@@ -157,7 +159,7 @@ GROUP BY
     cs.countryId, c.entity, c.code
 ORDER BY 
     avg_rabies DESC
-LIMIT 10;
+
 
 
 TASK 4:
